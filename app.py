@@ -146,10 +146,34 @@ def update_article():
 def read_articles():
     result = list(db.boyuk_requests.find({}))
 
+    # 클라이언트에서 문서ID를 쉽게 다루기 위해 object타입을 string타입으로 변환
     for document in result:
-        document['_id']=str(document['_id'])
+        document['_id'] = str(document['_id'])
 
     return jsonify({'result': 'success', 'articles': result})
+
+@app.route('/accept', methods=['POST'])
+def request_accept():
+    private_data_receive = request.form['private_data_give']
+    # 수락을 요청한 사용자의 문서ID를 저장
+    #user_documentId = str(db.users.find_one({'hpnumber':private_data_receive})['_id'])
+
+    documentId_receive = request.form['documentId_give']
+    db.boyuk_requests.update(
+        {'_id':ObjectId(documentId_receive)},
+        { '$push': { 'requests' : { '$each': [private_data_receive] } } }
+    )
+    return jsonify({'result': 'success'})
+
+@app.route('/choose', methods=['POST'])
+def choose_sitter():
+    # 조건은 문서ID로 해야 함
+    sitter_receive = request.form["sitter_give"]
+    documentId_receive = request.form["documentId_give"]
+
+    db.boyuk_requests.update_one({'_id': ObjectId(documentId_receive)}, {'$set': {'sitter' : sitter_receive}})
+
+    return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
