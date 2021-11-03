@@ -51,14 +51,14 @@ def sign_up_save():
 
     # password의 경우 보안을 위해 hash 처리
     password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
-    phonenmb_hash = hashlib.sha256(phonenmb_receive.encode('utf-8')).hexdigest()
+   
     address_hash = hashlib.sha256(address_receive.encode('utf-8')).hexdigest()
 
 
     user_data = {
         'username': id_receive,
         'password': password_hash,
-        'phonenmb': phonenmb_hash,
+        'phonenmb': phonenmb_receive,
         'address' : address_hash,
     }
 
