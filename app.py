@@ -118,7 +118,8 @@ def post_article():
         'startDay': startDay_receive, 
         'startHour': startHour_receive, 
         'endHour': endHour_receive, 
-        'comment': comment_receive
+        'comment': comment_receive,
+        'requests': []
     }
 
     db.boyuk_requests.insert_one(boyuk_requests)
