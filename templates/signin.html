@@ -69,32 +69,35 @@
 
     </script>
     <!-- style -->
-   
-    
+
+
     <title>육아를 도와주세요 로그인페이지</title>
 </head>
 
 <body>
- 
+
     <div class="wrap">
-        <div class="jumbotron">
+
         {% include './components/header/index.html' %}
-        <main class="sign_wrap">
-            <div id="post-box">
-                <div class="title-container">
-                    <h3>{{title}}</h3>
-                </div>
-                <div>
-                    <input id="input_id" class="input columns is-medium is-gapless" type="text"
-                        placeholder="성함를 입력해주세요.">
-                    <input id="input_password" class="input columns is-medium is-gapless" style="margin-bottom: 1.5rem;"
-                        type="password" placeholder="Password를 입력해주세요.">
-                </div>
-                <button class="button is-info is-medium is-fullwidth" onclick="signIn(event)">로그인</button>
+        
+            <div class="jumbotron">
+                <main class="sign_wrap">
+                    <div class="box">
+                        <div class="title-container">
+                            <h3 class="title-text">{{title}}</h3>
+                        </div>
+                        <div>
+                            <input id="input_id" class="input columns is-medium is-gapless" type="text"
+                                placeholder="성함를 입력해주세요.">
+                            <input id="input_password" class="input columns is-medium is-gapless"
+                                style="margin-bottom: 1.5rem;" type="password" placeholder="Password를 입력해주세요.">
+                        </div>
+                        <button class="button is-info is-medium is-fullwidth" onclick="signIn(event)">로그인</button>
+                    </div>
+                </main>
             </div>
-        </main>
         </div>
-    </div>
+    
     {% include './components/footer/index.html' %}
 </body>
 

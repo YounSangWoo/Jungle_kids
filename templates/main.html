@@ -11,6 +11,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+ <!-- Bulma -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -26,42 +28,8 @@
     <!-- 구글폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
 
-    <title>SW사관학교 정글 | 나홀로 메모장 였던 것</title>
+    <title>메인페이지</title>
 
-    <!-- style -->
-    <style type="text/css">
-        * {
-            font-family: "Stylish", sans-serif;
-        }
-
-        .wrap {
-            width: 900px;
-            margin: auto;
-        }
-
-        .comment {
-            color: blue;
-            font-weight: bold;
-        }
-
-        .display-4 {
-            text-align: center;
-        }
-
-        .jumbotron {
-            background-color: #ffe5f4;
-        }
-
-        .chooseBox {
-            margin: 10px;
-        }
-
-        #post-box {
-            width: 500px;
-            margin: 20px auto;
-            padding: 50px;
-        }
-    </style>
     <script>
         $(document).ready(function () {
             $("#cards-box").html("");
@@ -89,6 +57,7 @@
                     if (response["result"] == "success") {
                         if (response["duplicate"]) {
                             alert("이미 수락하셨습니다!")
+                            
                         } else {
                             alert("수락 요청이 완료되었습니다!");
                             window.location.reload();
@@ -384,10 +353,10 @@
 
 <body>
     <div class="wrap">
-        <div class="jumbotron">
+        
             {% include './components/header/index.html' %}
-
-            <div id="post-box">
+            <div class="jumbotron">
+            <div class="box" >
                 <div class="form-group">
                     <label for="post-title">제목</label>
                     <input id="post-title" class="form-control" placeholder="">

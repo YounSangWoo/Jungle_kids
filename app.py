@@ -13,7 +13,7 @@ from utils import token_to_id, token_to_ph
 app = Flask(__name__)
 SECRET_KEY = 'jungle_kids'
 
-
+##client = MongoClient('localhost', 27017)
 client = MongoClient('localhost', 27017)
 db = client.dbkids
 
